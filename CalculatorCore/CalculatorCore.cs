@@ -33,6 +33,14 @@ namespace CalculatorCore{
         }
 
         public void Input(InputType input) {
+            if(input == InputType.Erase){
+                Erase(false);
+                return;
+            }else if (input == InputType.EraseAll){
+                Erase(true);
+                return;
+            }
+
             if (!isOperator(input)) {
                 if (status.Is(Status.Flag.Result_Display)) {
                     status.Off(Status.Flag.Result_Display);
